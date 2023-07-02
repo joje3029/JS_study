@@ -7,53 +7,79 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" placeholder="아이디를 입력해주세요" id="inputId" maxlength="10" >
-    <input type="password" placeholder="비밀번호를 입력해주세요" id="inputPw" > 
-    <button onclick="loginValid()">로그인</button> 
-    <!-- 로그인 버튼을 눌렀을때 함수 호출이니까 inline으로 버튼을 클릭하면 loginValid()를 호출하게 함. -->
+    <button type="button" onclick="addStudent()">학생추가</button>
+    <button type="button" onclick="studentList()">학생목록 출력</button>
+    <button type="button" onclick="deletStudent()">학생 삭제</button>
+    <button type="button" onclick="updateStudent()">학생 수정</button>
     <script>
+        var students = [
+            {name : '소민', age : "100", address : "제주도"}
+        ]
         
+        function addStudent(){
+            inputName = prompt("이름을 입력해주세요")
+            
+            inputAge = prompt("나이를 입력해주세요")
 
-        //propmpt 에서 로그인 아이디 입력과 비밀번호. : 복습 잘하기! 기본임.
-        var myId = "koreaIT";
-        var myPw = "123456789";
+            inputAddress = prompt("주소를 입력해주세요")
 
-        var pwFailCnt = 0;//실패가 올라간 후 5회 이하가 되면 몇 회 틀려서 제한된 사람입니다. 뜨게 
 
-        var inputId;
-        var inputPw;
-        
-
-        function loginValid(){
-            // inputId = prompt("아이디를 입력해주세요.");
-            inputId = document.getElementById('inputId').value
-            if(inputId == "" || inputId == null){
-                alert("아이디를 입력해주세요.");
-                return;
-            }
-            // inputPw = prompt("비밀번호를 입력해주세요");
-            inputPw = document.getElementById('inputPw').value
-            if(inputPw ==""|| inputPw == null){
-                alert("비밀번호를 입력해주세요.");
-                return
-            }
-            if(inputPw.length<8||inputPw.length>=15){
-                alert("비밀번호는 8이상입니다.")
-                return
-            }
-            login = document.getElementById('login')
-            if(myId == inputId && myPw == inputPw){
-                alert("로그인 성공입니다.");
-            }else if(myId.value == inputId && myPw.value == inputPw){
-                alert("제한된 사용자로 로그인됩니다.")
-            } else{
-                alert("아이디 또는 비밀번호가 일치하지 않습니다.")
-            }
-
+            students.push({name : inputName, age : inputAge, address: inputAddress})
+            
+            console.log(students)
         }
 
-        // loginValid();//  함수 호출 -> 이게 없으면 당연히 코드 실행 안하지. 함수 호출 안했으니까.
-        // 근데 html 요소를 눌렀을때 실행이니까 이때는 여기 있으면 안됨.
+        function studentList(){
+            for(var i = 0; i < students.length; i++){
+                 for(var key in students[i]){
+                    console.log(students[i][key])// student i번째 key값 출력 => [i]가 없으면 당연히 못찾아서 undifind가 나옴.
+                }
+            }
+        }
+
+        function deletStudent(){
+            deleteNumber = prompt("삭제할 배열의 인덱스 번호를 입력하세요")
+            
+            if(deleteNumber >= students.length){
+                console.log("존재하지 않는 인덱스 번호 입니다.")
+                return;
+            }
+            
+            for(var i=0; i<students.length; i++){ //i가 인덱스 번호
+                if(i == deleteNumber){//i가 인덱스 번호니까 조건이 이렇게 되는것임.
+                    check=confirm("정말 삭제(확인)하시겠습니까?")
+                    if(check == true){
+                        students.splice(i,1);
+                        alert("삭제되었습니다.") 
+                    }else{
+                        alert("취소를 누르셨습니다.")
+                    }
+                }
+            }
+        }
+
+        
+        function updateStudent(){
+            deleteNumber = prompt("수정 할 배열의 인덱스 번호를 입력하세요")
+            
+            if(deleteNumber >=students.length){
+                console.log("존재하지 않는 인덱스 번호입니다.")
+                return;
+            }
+
+            updateName = prompt("수정할 이름을 입력하세요.")
+            updateAge = prompt("수정할 나이을 입력하세요.")
+            updateAddress = prompt("수정할 주소을 입력하세요.")
+            for(var i=0; i<students.length; i++){ //i가 인덱스 번호
+                if(i == deleteNumber){//i가 인덱스 번호니까 조건이 이렇게 되는것임.
+                    students[i].name=updateName;
+                    students[i].age=updateAge;
+                    students[i].address=updateAddress;
+                }
+            }
+        }
+        
+
 
     </script>
 </body>

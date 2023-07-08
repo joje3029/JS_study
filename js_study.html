@@ -5,82 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <body>
-    <button type="button" onclick="addStudent()">학생추가</button>
-    <button type="button" onclick="studentList()">학생목록 출력</button>
-    <button type="button" onclick="deletStudent()">학생 삭제</button>
-    <button type="button" onclick="updateStudent()">학생 수정</button>
+    <!-- <h1 id="curTime"></h1> -->
+    <div class="curTime">현재시간</div>
+    <div class="curTime"></div>
+    <div class="curTime"></div>
+    <div class="curTime">입니다</div>
+    <button type="button" onclick="stop()">중지</button>
     <script>
-        var students = [
-            {name : '소민', age : "100", address : "제주도"}
-        ]
+        // var today = new Date();
+        // console.log(today.getFullYear());
+        // console.log(today.getMonth()+1); //자바스크립트는 month 뽑을때 +1해야함
+        // console.log(today.getDate());
+
+        var todaydate = getTodayDate();
+        //2023-07-08
+        function getTodayDate(){
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth()+1;
+            var date = today.getDate();
+            var hour = today.getHours();
+            var minute = today.getMinutes();
+            var secounds = today.getSeconds();
+            // return year+'-'+ month +'-'+ date
+            return `${year}-${month}-${date}-${hour}:${minute}:${secounds}`;
+        }
+        // setInterval(() => document.write(todaydate), 1000);
+        interval=setInterval(function(){
+            // var curTime = document.getElementById("curTime");
+            // curTime.innerHTML = getTodayDate(); //h1 데이터(id=curTime)를 getTodayDate(함수로 바꾸겠다.)
+            // innerHTML은 다양하게 활용 가능
+            // curTime.innerHTML = `<input type="text" value="${getTodayDate()}"/>`; // 이런 식으로
+            
+            var curTime = document.getElementsByClassName("curTime");
+            curTime[1].innerHTML =getTodayDate();            
+            }, 1000);
+
+            var target = document.getElementsByClassName("curTime")
+            target[0].style.color = 'red';
+
+            var target = document.getElementsByClassName("curTime")
+            target[3].style.backgroundColor = 'black';
+            target[3].style.color = 'white';
+
+            var h1 =document.createElement("h1");
+            h1.innerText = '안녕';
+            document.body.appendChild(h1);
+            
+            document.getElementsByClassName("curTime")[2].appendChild(h1);
+        function stop(){
+            clearInterval(interval)
+            alert("중지되었습니다")
+        }
+
         
-        function addStudent(){
-            inputName = prompt("이름을 입력해주세요")
-            
-            inputAge = prompt("나이를 입력해주세요")
-
-            inputAddress = prompt("주소를 입력해주세요")
-
-
-            students.push({name : inputName, age : inputAge, address: inputAddress})
-            
-            console.log(students)
-        }
-
-        function studentList(){
-            for(var i = 0; i < students.length; i++){
-                 for(var key in students[i]){
-                    console.log(students[i][key])// student i번째 key값 출력 => [i]가 없으면 당연히 못찾아서 undifind가 나옴.
-                }
-            }
-        }
-
-        function deletStudent(){
-            deleteNumber = prompt("삭제할 배열의 인덱스 번호를 입력하세요")
-            
-            if(deleteNumber >= students.length){
-                console.log("존재하지 않는 인덱스 번호 입니다.")
-                return;
-            }
-            
-            for(var i=0; i<students.length; i++){ //i가 인덱스 번호
-                if(i == deleteNumber){//i가 인덱스 번호니까 조건이 이렇게 되는것임.
-                    check=confirm("정말 삭제(확인)하시겠습니까?")
-                    if(check == true){
-                        students.splice(i,1);
-                        alert("삭제되었습니다.") 
-                    }else{
-                        alert("취소를 누르셨습니다.")
-                    }
-                }
-            }
-        }
-
-        
-        function updateStudent(){
-            deleteNumber = prompt("수정 할 배열의 인덱스 번호를 입력하세요")
-            
-            if(deleteNumber >=students.length){
-                console.log("존재하지 않는 인덱스 번호입니다.")
-                return;
-            }
-
-            updateName = prompt("수정할 이름을 입력하세요.")
-            updateAge = prompt("수정할 나이을 입력하세요.")
-            updateAddress = prompt("수정할 주소을 입력하세요.")
-            for(var i=0; i<students.length; i++){ //i가 인덱스 번호
-                if(i == deleteNumber){//i가 인덱스 번호니까 조건이 이렇게 되는것임.
-                    students[i].name=updateName;
-                    students[i].age=updateAge;
-                    students[i].address=updateAddress;
-                }
-            }
-        }
-        
-
-
     </script>
 </body>
 </html>

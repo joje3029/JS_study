@@ -8,57 +8,26 @@
 
 </head>
 <body>
-    <!-- <h1 id="curTime"></h1> -->
-    <div class="curTime">현재시간</div>
-    <div class="curTime"></div>
-    <div class="curTime"></div>
-    <div class="curTime">입니다</div>
-    <button type="button" onclick="stop()">중지</button>
+ 
     <script>
-        // var today = new Date();
-        // console.log(today.getFullYear());
-        // console.log(today.getMonth()+1); //자바스크립트는 month 뽑을때 +1해야함
-        // console.log(today.getDate());
+       console.log(sumAll(1,2,3,4,5,6,7,8,9));
+    
+       console.log(sumAll(1,2,3));
 
-        var todaydate = getTodayDate();
-        //2023-07-08
-        function getTodayDate(){
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = today.getMonth()+1;
-            var date = today.getDate();
-            var hour = today.getHours();
-            var minute = today.getMinutes();
-            var secounds = today.getSeconds();
-            // return year+'-'+ month +'-'+ date
-            return `${year}-${month}-${date}-${hour}:${minute}:${secounds}`;
-        }
-        // setInterval(() => document.write(todaydate), 1000);
-        interval=setInterval(function(){
-            // var curTime = document.getElementById("curTime");
-            // curTime.innerHTML = getTodayDate(); //h1 데이터(id=curTime)를 getTodayDate(함수로 바꾸겠다.)
-            // innerHTML은 다양하게 활용 가능
-            // curTime.innerHTML = `<input type="text" value="${getTodayDate()}"/>`; // 이런 식으로
-            
-            var curTime = document.getElementsByClassName("curTime");
-            curTime[1].innerHTML =getTodayDate();            
-            }, 1000);
-
-            var target = document.getElementsByClassName("curTime")
-            target[0].style.color = 'red';
-
-            var target = document.getElementsByClassName("curTime")
-            target[3].style.backgroundColor = 'black';
-            target[3].style.color = 'white';
-
-            var h1 =document.createElement("h1");
-            h1.innerText = '안녕';
-            document.body.appendChild(h1);
-            
-            document.getElementsByClassName("curTime")[2].appendChild(h1);
-        function stop(){
-            clearInterval(interval)
-            alert("중지되었습니다")
+       console.log(sumAll(1,2,3,4,5,6));
+    //    function sumAll(a,b,c,d,e,f,g,h,i){
+    //     return a+b+c+d+e+f+g+h+i
+    //    }
+    
+        // 같은방법의 더 편한 버전
+        function sumAll(){
+        //  console.log(arguments) //arguments(배열의 한 종류) : 가변인자함수 -> 인자가 몇개가 들어올지 모를때 사용함.
+        //  console.log(arguments.length);
+        sum = 0;
+         for(i=0; i<arguments.length; i++){
+            sum += arguments[i]
+         }
+         return sum;
         }
 
         

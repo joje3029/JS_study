@@ -5,75 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <!-- title 탭부분에 뜨는 타이틀 -->
 </head>
 <body>
-    <!-- 형제 구하기
-    <h1>nextSibling 예제</h1>
+    <button type="button" onclick="openPopup()">팝업 열기</button>
 
-    <p>첫 번째 문단</p>
-    <p id="target">두 번째 문단 (대상)</p>
-    <p>세 번째 문단</p> -->
+    <button type="button" onclick="localStorage.removeItem('input')">스토리지 삭제</button>
+    <!-- 삭제버튼 누르면 localStorage에서 삭제되게 함. -->
+    
+    <button type="button" onclick="localStorage.clear()">로컬스토리지 클리어</button>
 
-
-    <h1>nextparent예제</h1>
-
-    <div id = "parent">
-        <p>첫 번째 문단<button type="button" onclick="remove()">삭제</button></p>
-        <p id="target">두 번째 문단 (대상)<button type="button" onclick="remove()">삭제</button></p>
-        <p>세 번째 문단<button type="button" onclick="remove()">삭제</button></p>
-    </div>
-
-    <!-- <button onclick="remove()">두번째 삭제</button> -->
-
+    <input type="text" id="input"/>
     <script>
-        // var input = document.createElement("input");
-        // input.value = "joje3029"; // 입력 기본 값
-        // // input.disabled = true; // 입력 불가
-        // // input.readOnly = true; //읽기 전용
-        // // input.setAttribute("data-id", "myId"); //요소 추가
-        // // input.setAttribute("maxlength", 5); //요소 추가. 앞=key 뒤 = value
-        // // document.body.appendChild(input);    
+        console.dir()
 
-        // localStorage.setItem("myId", "joje3029") //화면을 껐다가 접속하면 남아있음
-        // sessionStorage.setItem("myPw", "1234") // 화면을 껐다가 접속하면 남아있지 않음
+        function openPopup(){
+            var url="pop_up.html";
+            var name = "popup test";
+            var option = " width = 500, height = 500, top = 100, left = 200, location = no";
+            //location= no : 팝업창 주소 수정 안됨.
+            window.open(url, name, option);
 
-        // console.log(localStorage.getItem("myId"))
-        // console.log(sessionStorage.getItem("myPw"))
-
-        // function getNextSibling(){ //형제 구하기
-        //     var element = document.getElementById("target");
-        //     console.log(element);
-        //     var nextSibling = element.nextElementSibling;
-        //     console.log(nextSibling.textContent);
-
-        //     var preSibling = element.previousElementSibling;
-        //     console.log(preSibling.textContent);
-        // }
-
-        // getNextSibling();
-
-        var element = document.getElementById("target");
-        var parent = document.getElementById("parent")
-        var firstchild = parent.firstElementChild;
-        var lastChild = parent.lastElementChild;
-        console.log(element.parentElement);
-        console.log(firstchild);
-        console.log(lastChild)
-        console.log(parent.children)
-        parent.children[1].style.color = 'red';
-
-        // function remove(){
-        //     var parent = document.getElementById("parent");
-        //     parent.children[1].remove();
-        // }
-
-        function remove(){
-            event.target.parentElement.remove();
+            var myinput = document.getElementById("input").value;
+            localStorage.setItem("input", myinput);
         }
 
-
-
+        
 
     </script>
 </body>

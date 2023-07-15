@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .slider{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .slider img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <img id="slider" src="imgslider/img1.jpg">
+    </div>
+    <button type="button" onclick="changeImage(-1)">Previous</button>
+    <button type="button" onclick="changeImage(1)"> Next</button>
+
+    <script>
+        var imges = ["img1.jpg","img2.jpg", "img3.jpg"];
+        var currentImageIndex = 0;
+
+        imges.forEach(function(currentImageIndex){
+            currentImageIndex.addEventListener("click", function(event){
+                
+            })
+        })
+    </script>
+</body>
+</html>

@@ -21,20 +21,43 @@
 </head>
 <body>
     <div class="slider">
-        <img id="slider" src="imgslider/img1.jpg">
+        <img id="slide" src="imgslider/img1.jpg">
     </div>
     <button type="button" onclick="changeImage(-1)">Previous</button>
-    <button type="button" onclick="changeImage(1)"> Next</button>
-
+    <button type="button" onclick="changeImage(1)">Next</button>
     <script>
-        var imges = ["img1.jpg","img2.jpg", "img3.jpg"];
+        var images = ["imgslider/img1.jpg","imgslider/img2.jpg","imgslider/img3.jpg"];
         var currentImageIndex = 0;
 
-        imges.forEach(function(currentImageIndex){
-            currentImageIndex.addEventListener("click", function(event){
-                
-            })
-        })
+        setInterval(function(){
+            changeImage(1);
+        }, 3000);
+
+
+        function changeImage(change){
+            currentImageIndex +=change;
+            if(currentImageIndex < 0){
+                currentImageIndex = images.length-1;
+            } else if(currentImageIndex >= images.length){
+                currentImageIndex = 0;
+            }
+            document.getElementById("slide").src=images[currentImageIndex]
+        }
+
+        // 내 시도
+        // const prev = document.querySelector('.prev');
+        // const next = document.querySelector('.next');
+
+        // prev.addEventListener('click', function(event){
+        //     currentImageIndex = event.target.currentImageIndex-1
+        // });
+
+        // next.addEventListener('click', function(event) {
+        //     currentImageIndex= event.target.currentImageIndex+1
+            
+        // });
+
+        
     </script>
 </body>
 </html>

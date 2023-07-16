@@ -77,9 +77,11 @@
     <div class="box-container" id="container">
     </div>
     <button class="add-button" id="addButton">박스 추가</button>
+    <button class="clean-button" id="cleanButton">초기화</button>
 
     <script>
         count = 0;
+        maxNumber =0
         var addBtn = document.getElementById('addButton');
         addBtn.addEventListener("click", function () {
             createBox();
@@ -88,7 +90,11 @@
         var add = document.getElementById("container");
 
         function createBox() {
+            if(maxNumber ==20){
+                alert("20개 이상입니다. 더이상 생산 불가합니다.")
+            }else{
             count++;
+            maxNumber++;
             var div = document.createElement("div")
             div.className="box"
             div.textContent="box"+count
@@ -109,7 +115,21 @@
             function removeBox() {
                 event.target.parentElement.remove();
             }
+            }
         }
+
+        var cleanBtn = document.getElementById("cleanButton");
+
+        cleanBtn.addEventListener("click",function(){
+            cleanBox();
+        })
+
+        function cleanBox(){
+            while(add.hasChildNodes()){
+                add.removeChild(add.firstChild);
+            }
+        }
+        
         
     </script>
 </body>

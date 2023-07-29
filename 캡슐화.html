@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function Student(name, korean, math, english, sciense){
+
+            var privateName=name;
+            var privateKorean=korean;
+            var privateMath=math;
+            var privateEnglish=english;
+            var privateSciense=sciense;
+
+            this.getName=function(){
+                return privateName;
+            }
+
+            this.setName=function(newName){
+                return privateName;
+            }
+
+            this.getKorea=function(){
+                return privateKorean;
+            }
+
+            this.getMath=function(){
+                return privateMath;
+            }
+
+            this.getEnglish=function(){
+                return privateEnglish;
+            }
+            
+            this.getSciense=function(){
+                return privateSciense;
+            }
+
+            this.toString = function(){
+                return `${privateName}의 정수 - 국어:${privateName},수학: ${privateName}, 영어 : ${privateName}, 과학 :${privateName}`;
+            }
+
+        }
+        
+        var student = new Student('박소민', 90,95,80,85)
+
+        console.log(student.getName())
+    </script>
+</body>
+</html>

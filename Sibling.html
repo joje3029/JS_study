@@ -21,19 +21,14 @@
         <li>네 번째 자식
             <span id="mySpan">막내</span>
         </li>
-
     </div>
     <script>
-        var mySpan = document.getElementById('mySpan')
-        // var parent=mySpan.parentNode;
-        // var second =parent.previousElementSibling.previousElementSibling
+        var secondChild=document.getElementById('parent').childNodes[1]
+        var newSpan =document.createElement('span')
+        newSpan.textContent='첫째'
+        secondChild.appendChild(newSpan)
+        console.log(secondChild)
 
-        // second.innerHTML = '두번째 자식'
-        // second.style.color= 'red'
-        // console.log(second)
-
-        // 더 좋은 방법 : 위는 innerHTML에 코드가 길어서 리팩토링 해야하는데 이건 그런게 없으니까.
-        mySpan.parentElement.previousElementSibling.previousElementSibling.style.color="red"
     </script>
 </body>
 

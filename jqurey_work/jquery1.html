@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("*").css('font-size','20px');
+            
+            $("h3").css('text-decoration','underline');
+            $("#text01").css('color','red');
+            $("#text02").css('color','blue');
+
+            $(".odd").css('color','pink');
+            $(".even").css('color','skyblue');
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <h3>제목 태그</h3>
+    <p id="text01">문단 태그</p>
+    <p id="text02">문단 태그</p>
+
+    <ul>
+        <li class="odd">리스트 태그</li>
+        <li class="even">리스트 태그</li>
+        <li class="odd">리스트 태그</li>
+        <li class="even">리스트 태그</li>
+    </ul>
+
+    <!-- <script>
+        // document.getElementsByName("*").style.fontSize = '20px';
+        var AllElement = document.querySelectorAll("*");
+        for(var i =0; i<AllElement.length; i++){
+            AllElement[i].style.fontSize='20px'
+        }
+
+        document.querySelector("h3").style.textDecoration='underline';
+
+        // document.getElementsByTagName("h1").style.textDecoration = 'underline';
+        document.getElementById("text01").style.color = 'red';
+        document.getElementById("text02").style.color = 'blue';
+
+        // document.getElementsByClassName("odd").style.color ='pink';
+        var pink = document.getElementsByClassName("odd");
+        for(var i =0; i<pink.length; i++){
+            pink[i].style.color='pink'
+        }
+
+        // document.getElementsByClassName("even").style.color ='skyblue';
+        var skyblue = document.getElementsByClassName("even");
+        for(var i =0; i<skyblue.length; i++){
+            skyblue[i].style.color='skyblue'
+        }
+    </script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <h1 id="text">제목태그</h1>
+    <script>
+    // $(document).ready(function(){ //제이쿼리 준비 구문 : 위든 아래에 두든 써야함.
+    //     $("h1").css("color","red");
+    // });
+    
+    // $(function(){  // 위의 제이쿼리 레디 구문 축약형.
+    //     $("h1").css("color","red");
+    // });
+       
+    // 자바스크립트 내장 객체는 똑같이 사용. 아래는 예
+    // $(document).ready(function(){
+    //     var num = Math.floor(Math.random()*99)+1;
+    // });
+    
+    // //위 아래 같은 코드
+    // window.onload=function(){
+    //     document.getElementById('text').style.color='red';
+    // }
+
+    // $(document).ready(function(){
+    //     $('#text').css('color','red');
+    // })
+    </script> -->
+
+
+
+</body>
+</html>

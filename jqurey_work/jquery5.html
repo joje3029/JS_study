@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('input[type=text]').css('border','1px solid red')
+            // $('input[type:text]').css('border','1px solid red') //위에랑 같은 말
+            $('input[type=password]').css('border','1px solid blue')
+            // $('input[type:password]').css('border','1px solid blue') //위에랑 같은 말
+            $('input[disabled]').css('padding','20px')
+            $('input:enabled').css('padding','40px') // 활성화 된놈만
+            $('input:checkbox:checked').css("width", "200px")
+            
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h1>로그인</h1>
+        <input type="text" disabled>
+        <input type="password">
+        <button>로그인</button>
+
+        <input type="checkbox" checked>
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox" checked>
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox"checked>
+    </div>
+</body>
+</html>

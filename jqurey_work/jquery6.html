@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            // $("선택자").메서드명(); //제이쿼리 메서드의 기본형태 : 매개변수가 없는 상태
+            // $("선택자").메서드명("매개변수가 한개 있는 상태");
+            // $("선택자").메서드명(function(){}); //매개변수가 함수인 경우
+            // $("선택자").메서드명("값1",'값2');//매서드가 여러개
+            // $("선택자").메서드명({
+            //     속성: 속성값, 속성: 속성값
+            // });//매개변수가 객체방식인 경우
+
+            // console.log($('div').html()) //게터 메서드
+            // $('div').html("뱁새") //세터 메서드
+
+            // $('h1:eq(0)').html('title tag 1')
+            // $('h1:eq(1)').html('title tag 2')
+            // $('h1:eq(2)').html('title tag 3')
+
+            //100개 일때 : 매개변수로 받아서
+            // $('h1').html(function(index){
+            //     return "title tag"+(index+1)
+            // })
+
+            // $('h1').html(function(index,text){
+            //     return (text)+(index+1)
+            // })
+
+            // //매개변수가 함수인 유형
+            // var color = $('h1').css('color','red');
+            // console.log(color)
+
+            // var rule = {color:'blue', fontStyle : 'italic'}
+            // $(color).css(rule)
+
+            // var color =$('h1').css('fontSize', function(index){
+            //     return (index+1)*10;
+            // })
+
+            var colors = ["red","green","blue"]
+            var color = $('h1').css({
+                backgroundColor : "black",
+                color :function(index){
+                    return colors[index]
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- <div>박스</div> -->
+
+    <h1>제목태그</h1>
+    <h1>제목태그</h1>
+    <h1>제목태그</h1>
+</body>
+</html>

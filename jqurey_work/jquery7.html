@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        .empty-field{
+            border: 2px solid red;
+        }        
+    </style>
+    <script>
+        $(document).ready(function(){
+            // // $('h1:first').css('color','red')
+            // $('h1').first().css('color','red') // first선택자를 매서드로 한 방법
+            // // 성능적으로 매서드로 하는게 더 빠름. 가독성도 이게 더 좋다고 함.
+
+            // $('h1').last().css('color','yellow')
+            // $('h1').eq(1).css('color','blue')
+
+            // $('h1').filter('.second').css('color','red')
+            // $('h1').filter('.third').css('color','blue')
+            // $('h1').filter(function(){
+                
+                
+            //     $('h1')
+            //     .filter(function(index){
+            //         return index%2==0;
+            //     })
+            //     .css('textDecoration','underline')
+
+            // //apple쪽 html 문자길이 5이상 빨강
+            // $('li')
+            // .filter(function(){
+            //     return $(this).text().length<=5
+            // }).css('color','red')
+
+
+            // console.log($('input').val())
+            //val 예제 : 값이 공백이면 class : empty-field가 생기게 -> 위에 empty-field style 뻘건색을 줘서 빨개짐
+                $("#signUp").click(function(event){
+                    $('input')
+                    .filter(function(){
+                        // return $(this).val()== ""
+                        return !$(this).val();
+                    }).addClass('empty-field');
+                    
+                    console.log($('input'))
+                })
+                
+                
+
+        })
+        
+    </script>
+</head>
+<body>
+    <!-- // <h1>제목 태그</h1>
+    // <h1 class="second">제목 태그</h1>
+    // <h1 class="third">제목 태그</h1>
+    // <h1>제목 태그</h1>
+    // <h1>제목 태그</h1>
+    // <h1>제목 태그</h1> -->
+
+    <!-- <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Kiwi</li>
+        <li>strawberry</li>
+        <li>Peach</li>
+    </ul> -->
+
+    <form id="sampleform">
+        <label>Username</label>
+        <input type="text" name="Username"><br><br>
+
+        <label>Email</label>
+        <input type="email" name="email"><br><br>
+
+        <label>Password</label>
+        <input type="password" name="password"><br><br>
+        
+        <label>Favorite color</label>
+        <input type="text" name="color"><br><br>
+
+        <button type="button" id="signUp">signUp</button>
+    </form>
+</body>
+</html>

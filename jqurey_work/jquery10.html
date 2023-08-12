@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+        $(document).ready(function(){
+            // $('li').parents().css({
+            //     padding: 20,
+            //     border : "3px solid black"
+            // });
+
+            // $('li').parents('section').css('border','1px solid black')
+
+            // $('li').parent().parent().siblings().css('border','1px solid blue')
+
+            $('li').parentsUntil('body').css('border','1px dotted red')
+        });    
+
+    </script>
+</head>
+<body>
+    <section>
+        <h1>제목태그</h1>
+        <div>
+            <ul>
+                <li>목록1</li>
+                <li>목록2</li>
+                <li>목록3</li>
+                <li>목록4</li>
+                <li>목록5</li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

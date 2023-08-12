@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+        $(document).ready(function(){
+            // setter임
+            // $(".text01").text("<a href='#'>링크이동</a>")
+            // $(".text02").html("<a href='#'>링크이동</a>")
+
+            // getter임
+            // var text01=$(".text01").text()
+            // var text02=$(".text02").html()
+
+            // console.log(text01)
+            // console.log(text02)
+
+            $('.reset').click(function(event){
+                // var text01=$('.text01').text()
+                // var text02=$('.text02').text()
+                // text01='text01'
+                // text02='text02'
+                // $(".text01").text(text01)
+                // $(".text02").text(text02)
+
+                // 위에 내가 한거처럼 굳이 getter를 할이유가 없음.
+                $(".text01").text("text01")
+                $(".text02").text("text02")
+                
+            })
+
+            $('.chage').click(function(event){
+                var text01=prompt("text1번 값을 입력");
+                var text02=prompt("text2번 값을 입력");
+                $(".text01").text(text01)
+                $(".text02").text(text02)
+                
+            })
+
+            // 글자 눌러서 변경
+            $('.text01').click(function(event){
+                var text01=prompt("text1번 값을 입력");
+                $(".text01").text(text01)
+                
+            })
+
+            $('.text02').click(function(event){
+                var text02=prompt("text2번 값을 입력");
+                $(".text02").text(text02)
+                
+            })
+        });    
+
+    </script>
+</head>
+<body>
+    <!-- setter임 -->
+    <!-- <h1 class="text01"></h1>
+    <h1 class="text02"></h1> -->
+
+    <!-- getter임 -->
+    <!-- <h1 class="text01"><a href="">링크이동</a></h1> -->
+        <!-- getter 했을때 텍스트 줄 바뀜 차이가 위아래 남. -->
+    <!-- <h1 class="text02">
+        <a href="">링크이동</a>
+    </h1> -->
+    <h1 class="text01">텍스트01</h1>
+    <h1 class="text02">텍스트02</h1>
+    <!-- <button class="chage">변경</button>
+    <button class="reset">초기화</button> -->
+</body>
+</html>

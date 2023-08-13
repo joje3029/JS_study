@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+        $(document).ready(function(){
+            // console.log($("input[type='checkbox']").attr('type'))
+            // console.log($("input[type='checkbox']").attr('checked'))
+            // console.log($("input[type='checkbox']").val('checked'))
+            // console.log($("input[type='checkbox']").prop('checked'))
+
+            // var chk01=($("#check01").prop('checked'))
+            // var chk02=($("#check02").prop('checked'))
+            // console.log(chk01)
+            // console.log(chk02)
+
+            var s = $('#students option:selected').prop('selected');
+            console.log(s)
+
+            $('#students').val('호윤');
+            var s = $('#students option:selected').prop('selected');
+            console.log(s)
+            
+        });    
+        
+        </script>
+</head>
+<body>
+    <!-- <input id="check01" type="checkbox" checked>    
+    <input id="check02" type="checkbox">     -->
+
+    <select name="" id="students">
+        <option value="소민">소민</option>
+        <option value="세진">세진</option>
+        <option value="호윤">호윤</option>
+        <option value="지호">지호</option>
+        <option value="성훈">성훈</option>
+        <option value="희지" selected>희지</option>
+    </select>
+</body>
+</html>

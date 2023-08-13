@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        h1{
+            border: : 1px solid black;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            setTimeout(function(){
+                $(".box01 h1").text(function(index){
+                    return "Title tag"+(index+1).toString().padStart(2, '0');
+                    // return부분을 삼항자로 한것 코드
+                    // return 'Title tag'+(index < 9 ? "0" : "")+(index+1);
+
+                    // if 문을 이용해서도 return할 수 있음.
+                })
+            }, 3000)
+
+            setTimeout(function(){
+                $(".box02 p").text(function(index){
+                return "Paragraph Tag"+(index+1).toString().padStart(2, '0');
+            })                
+
+            }, 6000)
+
+        });    
+
+    </script>
+</head>
+<body>
+    <div class="box01">
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+        <h1>제목태그</h1>
+    </div>
+    <div class="box02">
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+        <p>문단태그</p>
+    </div>
+</body>
+</html>

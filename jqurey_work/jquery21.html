@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        
+    </style>
+    <script>
+        $(document).ready(function(){
+         setTimeout(function(){
+            // $("img").Attr('width','none')과 아래의 코드는 다른거
+            // 위는 width='none'으로 바뀐는거.
+            // 아래는 width 자체가 없어지는거
+            $("img").removeAttr('width')
+         }, 3000)
+        });    
+
+    </script>
+</head>
+<body>
+    <img src="/fish02.png" alt="파란놈" width="400">
+</body>
+</html>

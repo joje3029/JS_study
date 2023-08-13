@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+    </style>
+    <script>
+        $(document).ready(function(){
+            // var imgWidth=$('img').attr('width')  
+            // console.log(imgWidth)
+            // console.log($('img').attr('width'))
+            // console.log($('img').attr('src'))
+            // console.log($('img').attr('alt'))
+
+            // 고양이 이미지
+            // 1번 방법
+            // var size = {
+            //     width : 300,
+            //     height : 300
+            // }
+            // $('img').attr(size);
+
+            // // 2번 방법
+            // $('img').attr('width',500);
+            // $('img').attr('height',500);
+
+            // // 3번 방법
+            // $('img').attr('width',400).attr('height',400);
+
+            setTimeout(function(){
+                $('#check01').attr('checked', true)
+            },3000)
+
+            setTimeout(function(){
+                $('#check02').prop('checked', true)
+            },3000)
+        });    
+        
+        </script>
+</head>
+<body>
+    <!-- <img src="/tree-736877_1280.jpg" alt="달과 고양이" width="900"> -->
+    <label for="check01">attr 체크</label>
+    <input type="checkbox" id="check01">
+    <label for="check01">prop 체크</label>
+    <input type="checkbox" id="check02">
+</body>
+</html>

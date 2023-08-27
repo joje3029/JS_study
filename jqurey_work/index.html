@@ -64,13 +64,13 @@
         }
         </style>
     <script>
-        $(document).ready(function () {
-            // inputText 중복 코드 함수
-            function inputText(){
-                var input = $("#todoInput");
-                var inputText = input.val();
+        $(document).ready(function () { //제이쿼리 시작하기 위한 준비 구문. 
+            // inputText 중복 코드 함수(), add되는 함수와 enter()함수에 중복되는 부분 분리 
+            function inputText(){ 
+                var input = $("#todoInput"); //아이디가 indoInput인 요소를 선택해서 변수 input에 넣음.
+                var inputText = input.val(); //input변수의 값을 변수 inputText에 넣음
                 
-                function isEmpty(val){
+                function isEmpty(val){// inputText가 비었나 아닌가 확인하는 함수
                     // val이 문자면 ""이냐 체크해서 retrun true
                     // val이 배열인데 배열이 비었냐? 체크해서 retrun true
                     
@@ -81,46 +81,46 @@
                     // 5.object
         
                     // earlyReturn 패턴 사용
-        
-                    if(isString(inputText)){
-                        if(inputText=""){
-                            console.log(true)
-                        }else{
-                            // return false
-                            alert(flase)
-                        }
-                    }    
+                    
+                    if(inputText == null || inputText == undefined){ // inputText가 null이거나 undefined냐 확인
+                        // undefined를 확인하는 이유 : 웹에서 변수가 선언되고 사용하지 않는 경우가 있는지 확인하면 예상치 못한 
+                        // 에러나 동작을 방지하고 불필요한 메모리 사용과 가독성 저하를 방지할수 있음.
+                        return true; // return을 사용함으로써 판단하고 조건에 만족하면 뒤에 확인 안하고 끝남 : earlyReturn
+                    }else if(inputText===""){// inputText가 공백인지 확인
+                        return true;
+                    }else if(Array.isArray(inputText)&& inputText.length===0){//inputText가 배열이고 배열이 비었는지 확인
+                        return true;
+                    }else{
+                        return false; //모든 조건을 통과하면 false를 return해서 확인을 통과함을 출력
+                    }
         
         
                     
                 }
 
-                var li = $("<li></li>");
-                console.log(li)
-                li.append(`<span>${inputText}</span><button>삭제</button>`);
-                var ul = $("#todoList");
-                ul.append(li);
-                input.val(null)
-                // $("#todoList").append($("<li>").html());
+                var li = $("<li></li>"); // 새로운 li요소를 생성하여 해당 요소를 변수 li에 넣음
+                li.append(`<span>${inputText}</span><button>삭제</button>`); //li의 자식 요소로 span과 button 요소를 넣는다. span과 button은 형제 관계이다.
+                var ul = $("#todoList"); //아이디가 todoLIst인 요소를 ul 변수에 넣는다.
+                ul.append(li); //ul의 자식요소로 변수 li를 넣는다.
+                input.val(null)//input의 값을 null로 한다.
                     
-                    // 2.del()
-                    var button = li.find("button");
-                    console.log(button)
-                    
-                    button.on("click", function(){
+                    // 2.del(): 삭제 기능을 하는 구간
+                    var button = li.find("button");// li의 자식중 button인것만 변수 button에 담음
+
+                    button.on("click", function(){ // button을 클릭하면 그 버튼의 부모요소가 삭제
                         $(this).parent().remove();
                     
                 })
             }
 
-            // 1.add()
+            // 1.add되는 부분 : 아이디가 addButton인 요소를 클릭하면 inputText() 작동
             $("#addButton").click(function () {
                 inputText()    
             })
 
-            // 3.enter()
+            // 3.enter(): 아이디가 todoInput인 요소의 키를 올리면 이벤트가 발생
             $("#todoInput").keyup(function (event) {
-                if (event.keyCode == 13) {
+                if (event.keyCode == 13) { //만약 키가 13(=enter)이면 inputText() 작동
                     inputText()
 
                 }

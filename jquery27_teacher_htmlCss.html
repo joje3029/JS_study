@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+      /* 스타일 코드 */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      #reviews {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      .review-section {
+        flex: 1;
+        margin-right: 20px;
+      }
+
+      .star-section {
+        flex: 1;
+        text-align: center;
+      }
+
+      .review-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .review-item {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .star {
+        font-size: 24px;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <h1>상품 리뷰 및 별점</h1>
+
+    <div id="reviews">
+      <div class="review-section">
+        <h2>상품 리뷰</h2>
+        <textarea
+          id="newReview"
+          rows="3"
+          placeholder="리뷰를 입력하세요"
+        ></textarea>
+        <button id="addReview">리뷰 추가</button>
+        <ul class="review-list" id="reviewList"></ul>
+      </div>
+      <div class="star-section">
+        <h2>별점</h2>
+        <div>
+          <span class="star" data-rating="1">★</span>
+          <span class="star" data-rating="2">★</span>
+          <span class="star" data-rating="3">★</span>
+          <span class="star" data-rating="4">★</span>
+          <span class="star" data-rating="5">★</span>
+        </div>
+        <p><span id="starRating">0</span>/5</p>
+      </div>
+    </div>
+
+</body>
+</html>

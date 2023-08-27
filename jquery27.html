@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+        }
+        .first_div{
+            width: 50%;
+            box-sizing:  border-box;
+            padding: 20px;
+        }
+        .star{
+            color: rgb(204, 204, 204);
+        }
+        li{
+            list-style: none;
+            padding-left: 0px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("button").on("click",function(){
+                var review = $("#review_text")
+                var review_txt = review.val()
+                
+                var ul =$("ul")
+                var li =`<li>${review_txt}</li>`
+                ul.append(li)
+                review.val("")
+            })
+            // $(".star").on("mouseenter",function(){
+            //     var score = $(this).data("rating")
+            //     console.log(score)
+            //     for(var i=0; i<=score; i++){
+            //         $(this).css("color","yellow")
+                    
+            //     }
+
+            // })
+            $(".star").hover(
+                function(){
+                    var rating = $(this).data("rating");
+                    highlightStarts(rating);
+                },function(){
+                    var currentRating = parseInt($("#starRating").text());
+                    highlightStarts(currentRating);
+                }
+            );
+
+            function highlightStarts(rating){
+                $(".star").css("color","#ccc");
+                $(".star:lt("+rating+")").css("color","#ffcc00")
+            }
+            
+
+        });    
+
+    </script>
+</head>
+<body>
+   <h1 id="title">상품 리뷰 및 별점</h1>
+   <div class="container">
+       <div class="first_div">
+        <div class="reveiw_div">
+            <h2 id="Pd_review">상품리뷰</h2>
+             <textarea name="리뷰내용" id="review_text" cols="30" rows="10"></textarea>
+             <button>리뷰 추가</button>
+        </div>
+        <ul></ul>    
+       </div>
+
+       <div class="first_div">
+           <h2 id="startScore">별점</h2>
+           <div id="star_span">
+               <span class="star" data-rating="1">★</span>    
+               <span class="star" data-rating="2">★</span>
+               <span class="star" data-rating="3">★</span>
+               <span class="star" data-rating="4">★</span>
+               <span class="star" data-rating="5">★</span>
+               <p><span>0</span><span>/5</span></p>
+               
+           </div>
+       </div>
+
+   </div>
+
+</body>
+</html>

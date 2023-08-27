@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        div{
+            width: 300px;
+            padding: 10px;
+            border : 3px solid black;
+        }
+        p{
+            width: 300px;
+            height: 100px;
+            padding : 0px;
+            margin: 0px;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        // 1.수업
+        // slideUP() : alert("called slideUP!!");
+        // slideDown() : alert("called slideDown!!");
+        // $(document).ready(function(){
+        //     $("button:first").on("click",function(){
+        //         // $("p").slideUp("fast");
+        //         // $("p").hide();
+        //         $("p").fadeIn();
+                
+        //     })
+        //     $("button:last").on("click",function(){
+        //         // $("p").slideDown("fast");
+        //         // $("p").show();
+        //         $("p").fadeOut();
+        //     })
+        // });
+        // 2.수업
+        $(document).ready(function(){
+            $(".box01 button").click(function(){
+                $(this).next().toggle("slow",function(){
+                    $(this).css(backgroundColor,red)
+                });
+            })
+            $(".box02 button").click(function(){
+                $(this).next().slideToggle("slow");
+            })
+            $(".box03 button").click(function(){
+                $(this).next().fadeToggle("slow");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="box01">
+        <button>show/hide</button>
+        <p>테스트</p>
+    </div>
+    <div class="box02">
+        <button>slide</button>
+        <p>테스트</p>
+    </div>
+    <div class="box01">
+        <button>fade</button>
+        <p>테스트</p>
+    </div>    
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,91 +8,114 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <style>
-        h1{
+        h1 {
             text-align: center;
         }
-        .container{
+
+        .container {
             display: flex;
         }
-        .first_div{
+
+        .first_div {
             width: 50%;
-            box-sizing:  border-box;
+            box-sizing: border-box;
             padding: 20px;
         }
-        .star{
-            color: rgb(204, 204, 204);
+
+        .star {
+            /* color: rgb(204, 204, 204); */
+            color: gray;
         }
-        li{
+
+        li {
             list-style: none;
             padding-left: 0px;
         }
     </style>
     <script>
-        $(document).ready(function(){
-            $("button").on("click",function(){
-                var review = $("#review_text")
-                var review_txt = review.val()
+          
+        $(document).ready(function () {
+            var rating = ""
+            // 별점 클릭
+            $(".star").on("click", function () { 
+                rating = $(this).data("rating"); 
+                // 클릭된 별점을 '#starRating' 요소에 표시
+                $("#starRating span:first-child").text(rating); 
+                highlightStarts(rating); 
                 
-                var ul =$("ul")
-                var li =`<li>${review_txt}</li>`
-                ul.append(li)
-                review.val("")
-            })
-            // $(".star").on("mouseenter",function(){
-            //     var score = $(this).data("rating")
-            //     console.log(score)
-            //     for(var i=0; i<=score; i++){
-            //         $(this).css("color","yellow")
-                    
-            //     }
-
-            // })
-            $(".star").hover(
-                function(){
-                    var rating = $(this).data("rating");
-                    highlightStarts(rating);
-                },function(){
-                    var currentRating = parseInt($("#starRating").text());
-                    highlightStarts(currentRating);
-                }
-            );
-
-            function highlightStarts(rating){
-                $(".star").css("color","#ccc");
-                $(".star:lt("+rating+")").css("color","#ffcc00")
+            });
+            //별 노란색 되는 함수
+            function highlightStarts(rating) {
+                $(".star").css("color", "#ccc");
+                $(".star:lt(" + rating + ")").css("color", "#ffcc00");
             }
-            
+            // 별이 색, 점수이 원래로 돌아가는 함수
+            function finshedHighlightStarts(){
+                $(".star").css("color", "grey");
+                rating = "0"
+                $("#starRating span:first-child").text(rating); 
+            }
 
-        });    
 
+            // 리뷰 추가
+            $("button").on("click", function () { 
+                var review = $("#review_text"); 
+                var review_txt = review.val();  
+                
+                //리뷰가 적히지 않으면 리뷰추가 안되고 alert으로 리뷰를추가해 주세요.
+                if(review_txt===null|| review_txt===""){
+                    alert("리뷰가 적히지 않았습니다.")
+                    return false
+                }
+                if(rating===""){
+                    alert("별점이 없습니다.")
+                    return false
+                }
+                
+
+                var ul = $("ul"); 
+                // var li = `<li>${review_txt}${rating}</li>`; 
+                var li = `<li>${review_txt} (별점: ${rating})</li>`;
+
+                ul.append(li); 
+                review.val(""); // 리뷰추가하고 비움
+                finshedHighlightStarts() // 별 색원상, 점수 복귀
+
+
+            });
+        });
+        
+        
     </script>
 </head>
+
 <body>
-   <h1 id="title">상품 리뷰 및 별점</h1>
-   <div class="container">
-       <div class="first_div">
-        <div class="reveiw_div">
-            <h2 id="Pd_review">상품리뷰</h2>
-             <textarea name="리뷰내용" id="review_text" cols="30" rows="10"></textarea>
-             <button>리뷰 추가</button>
+    <h1 id="title">상품 리뷰 및 별점</h1>
+    <div class="container">
+        <div class="first_div">
+            <div class="reveiw_div">
+                <h2 id="Pd_review">상품리뷰</h2>
+                <textarea name="리뷰내용" id="review_text" cols="30" rows="10" placeholder="리뷰를 작성해 주세요"></textarea>
+                <button>리뷰 추가</button>
+            </div>
+            <ul></ul>
         </div>
-        <ul></ul>    
-       </div>
 
-       <div class="first_div">
-           <h2 id="startScore">별점</h2>
-           <div id="star_span">
-               <span class="star" data-rating="1">★</span>    
-               <span class="star" data-rating="2">★</span>
-               <span class="star" data-rating="3">★</span>
-               <span class="star" data-rating="4">★</span>
-               <span class="star" data-rating="5">★</span>
-               <p><span>0</span><span>/5</span></p>
-               
-           </div>
-       </div>
+        <div class="first_div">
+            <h2 id="startScore">별점</h2>
+            <div id="star_span">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+                <p id="starRating"><span id="span_score">0</span><span>/5</span></p>
 
-   </div>
+            </div>
+        </div>
+
+    </div>
 
 </body>
+
 </html>
